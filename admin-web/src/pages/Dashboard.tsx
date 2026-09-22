@@ -41,8 +41,8 @@ export default function Dashboard() {
         ? <EmptyState symbol="🌳" title="All clear" description="No open reports or pending corrections. The community record is up to date." />
         : <p className="info-note">{openReports} open report(s) and {a.corrections.pending} pending correction(s) await review in the Moderation queue.</p>}
       <SecHead title="Top purposes" />
-      <ul>{a.topPurposes.map((p: { slug: string; name: string; species_count: number }) => (
-        <li key={p.slug}>{p.name}: {p.species_count} species</li>))}</ul>
+      <ul className="purpose-summary">{a.topPurposes.map((p: { slug: string; name: string; species_count: number }) => (
+        <li key={p.slug}><span>{p.name}</span><strong>{p.species_count} species</strong></li>))}</ul>
       <p className="brand-footer">Discover. Identify. Plant Native.</p>
       </main>
     </div>

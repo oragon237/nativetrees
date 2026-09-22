@@ -63,9 +63,9 @@ export default function Reports() {
           <span className="grow"><b>{r.reason}</b> on {r.entity_type} · by {r.reporter_name} · <StatusBadge value={r.status} />
             <br /><small>{r.description ?? ''}</small></span>
           <span className="actions">
-            <button onClick={() => resolve(r.id, 'in_review')}>in review</button>
+            <button className="secondary" onClick={() => resolve(r.id, 'in_review')}>in review</button>
             <button onClick={() => resolve(r.id, 'resolved')}>resolve</button>
-            <button onClick={() => resolve(r.id, 'dismissed')}>dismiss</button>
+            <button className="danger-quiet" onClick={() => resolve(r.id, 'dismissed')}>dismiss</button>
           </span>
         </div>
       ))}</div>

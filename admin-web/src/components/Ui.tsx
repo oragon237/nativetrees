@@ -50,7 +50,7 @@ export function EmptyState({ symbol, title, description, action }: {
       <span className="state-icon" aria-hidden="true">{symbol}</span>
       <h3>{title}</h3>
       <p>{description}</p>
-      {action && <a className="kp-btn outline" href={action.href} style={{ display: 'inline-block', textDecoration: 'none', padding: '10px 18px' }}>{action.label}</a>}
+      {action && <a className="kp-btn outline" href={action.href}>{action.label}</a>}
     </div>
   );
 }

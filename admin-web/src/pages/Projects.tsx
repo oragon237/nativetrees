@@ -56,7 +56,7 @@ export default function Projects() {
           <span className="grow"><b>{p.title}</b> · {p.pledged}/{p.goal_trees} pledged · {p.participants} participants · {p.province ?? '—'} · by {p.owner_name} · <StatusBadge value={p.status} /></span>
           <span className="actions">
             <button onClick={() => updateStatus(p.id, 'completed')}>complete</button>
-            <button onClick={() => updateStatus(p.id, 'cancelled')}>cancel</button>
+            <button className="danger-quiet" onClick={() => updateStatus(p.id, 'cancelled')}>cancel</button>
           </span>
         </div>
       ))}</div>

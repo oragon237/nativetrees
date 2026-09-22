@@ -89,13 +89,13 @@ export default function Users() {
           <p>Province: {detail.user.province ?? '—'} · Joined: {detail.user.created_at.slice(0, 10)}</p>
           <p><b>Contributions:</b> {Object.entries(detail.contributions).map(([k, v]) => `${k}: ${v}`).join(' · ')}</p>
           <div className="actions">
-            <button onClick={() => setStatus(detail.user.id, detail.user.account_status === 'active' ? 'suspended' : 'active')}>
+            <button className={detail.user.account_status === 'active' ? 'danger-quiet' : undefined} onClick={() => setStatus(detail.user.id, detail.user.account_status === 'active' ? 'suspended' : 'active')}>
               {detail.user.account_status === 'active' ? 'Suspend' : 'Reactivate'}
             </button>{' '}
-            <button onClick={() => toggleRole(detail.user.id, 'moderator', detail.user.roles.includes('moderator'))}>
+            <button className="secondary" onClick={() => toggleRole(detail.user.id, 'moderator', detail.user.roles.includes('moderator'))}>
               {detail.user.roles.includes('moderator') ? 'Remove moderator' : 'Make moderator'}
             </button>{' '}
-            <button onClick={() => toggleRole(detail.user.id, 'admin', detail.user.roles.includes('admin'))}>
+            <button className="secondary" onClick={() => toggleRole(detail.user.id, 'admin', detail.user.roles.includes('admin'))}>
               {detail.user.roles.includes('admin') ? 'Remove admin' : 'Make admin'}
             </button>
           </div>

@@ -124,6 +124,9 @@ td a { font-weight: 600; }
 .alert.error { border: 1px solid #eccac6; background: #fff2ef; color: var(--error); }
 .alert.success { border: 1px solid #cae1cb; background: #eef7ee; color: #246329; }
 .info-note { padding: 15px 16px; border-radius: var(--radius-md); background: var(--surface-alt); color: var(--text-secondary); font-size: 13px; }
+.purpose-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+.purpose-summary li { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 14px 16px; border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-card); color: var(--text-primary); font-size: 13px; }
+.purpose-summary strong { color: var(--kp-forest); font-size: 12px; white-space: nowrap; }
 .kp-empty { padding: 42px 24px; border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-card); color: var(--text-secondary); text-align: center; }
 .kp-empty h3 { margin: 14px 0 7px; }
 .kp-empty p { max-width: 440px; margin: 0 auto 18px; font-size: 13px; }
