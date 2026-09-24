@@ -88,12 +88,23 @@ CORS_ORIGINS=https://app.yourdomain.com,https://www.clientwebsitedemo.com
 ```
 
 ```bash
-npm run migrate     # creates all tables + seeds (15 purposes, 31 conditions, 6 sample species)
+npm run migrate     # creates all tables + seeds (15 purposes, 31 conditions, 66 sample species + 56 sample photos)
 npm run build
 pm2 start dist/server.js --name kp-api
 pm2 startup && pm2 save
 curl http://localhost:4000/api/v1/health   # {"ok":true,...}
 ```
+
+> Sample photos: migrations only insert the gallery *rows*. Copy the
+> image files from your dev machine, preserving paths:
+>
+> ```powershell
+> # Windows → VPS (WinSCP/FileZilla also works — keep folder structure!)
+> scp -r backend\uploads\* root@YOUR-VPS-IP:/home/kp/backend/uploads/
+> ```
+>
+> Then confirm: `https://www.clientwebsitedemo.com/native-api/api/v1/species?limit=3`
+> shows `primary_photo` URLs, and one image URL loads in a browser.
 
 ## 3. Web apps (Nginx static + HTTPS)
 
