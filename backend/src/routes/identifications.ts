@@ -120,7 +120,7 @@ identificationsRouter.get('/', async (req, res, next) => {
       `SELECT r.*, (SELECT count(*)::int FROM identification_photos p WHERE p.request_id = r.id) AS photo_count,
         (SELECT count(*)::int FROM identification_suggestions s WHERE s.request_id = r.id) AS suggestion_count
        FROM identification_requests r WHERE ${conds.join(' AND ')}
-       ORDER BY r.created_at DESC LIMIT $${values.length - 1} OFFSET $${values.length}`,
+       ORDER BY r.created_at DESC, r.id LIMIT $${values.length - 1} OFFSET $${values.length}`,
       values,
     );
     res.json({ requests: rows.map((r) => sanitizeLocation(r, req.user ?? null, r.user_id)) });

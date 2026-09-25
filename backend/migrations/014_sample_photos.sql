@@ -225,3 +225,31 @@ WHERE NOT EXISTS (SELECT 1 FROM species_photos WHERE file_url = '/uploads/specie
 INSERT INTO species_photos (species_id, file_url, photo_type, caption, verification_status)
 SELECT 'ffffffff-ffff-ffff-ffff-ffffffffffff', '/uploads/species/ffffffff-ffff-ffff-ffff-ffffffffffff/akleng.jpg', 'whole_tree', 'Sample photo via Wikipedia (Albizia procera). Replace with community photo.', 'verified'
 WHERE NOT EXISTS (SELECT 1 FROM species_photos WHERE file_url = '/uploads/species/ffffffff-ffff-ffff-ffff-ffffffffffff/akleng.jpg');
+
+INSERT INTO species_photos (species_id, file_url, photo_type, caption, verification_status)
+SELECT '20000000-0000-0000-0000-000000000001', '/uploads/species/20000000-0000-0000-0000-000000000001/ylangylang.jpg', 'whole_tree', 'Sample photo via Wikipedia (Cananga odorata). Replace with community photo.', 'verified'
+WHERE NOT EXISTS (SELECT 1 FROM species_photos WHERE file_url = '/uploads/species/20000000-0000-0000-0000-000000000001/ylangylang.jpg');
+
+INSERT INTO species_photos (species_id, file_url, photo_type, caption, verification_status)
+SELECT '20000000-0000-0000-0000-000000000002', '/uploads/species/20000000-0000-0000-0000-000000000002/kalingag.jpg', 'whole_tree', 'Sample photo via Wikipedia (Cinnamomum mercadoi). Replace with community photo.', 'verified'
+WHERE NOT EXISTS (SELECT 1 FROM species_photos WHERE file_url = '/uploads/species/20000000-0000-0000-0000-000000000002/kalingag.jpg');
+
+INSERT INTO species_photos (species_id, file_url, photo_type, caption, verification_status)
+SELECT '20000000-0000-0000-0000-000000000003', '/uploads/species/20000000-0000-0000-0000-000000000003/benguetpine.jpg', 'whole_tree', 'Sample photo via Wikipedia (Pinus kesiya). Replace with community photo.', 'verified'
+WHERE NOT EXISTS (SELECT 1 FROM species_photos WHERE file_url = '/uploads/species/20000000-0000-0000-0000-000000000003/benguetpine.jpg');
+
+INSERT INTO species_photos (species_id, file_url, photo_type, caption, verification_status)
+SELECT '20000000-0000-0000-0000-000000000004', '/uploads/species/20000000-0000-0000-0000-000000000004/huani.jpg', 'whole_tree', 'Sample photo via Wikipedia (Mangifera odorata). Replace with community photo.', 'verified'
+WHERE NOT EXISTS (SELECT 1 FROM species_photos WHERE file_url = '/uploads/species/20000000-0000-0000-0000-000000000004/huani.jpg');
+
+INSERT INTO species_photos (species_id, file_url, photo_type, caption, verification_status)
+SELECT '20000000-0000-0000-0000-000000000005', '/uploads/species/20000000-0000-0000-0000-000000000005/almaciga.jpg', 'whole_tree', 'Sample photo via Wikipedia (Agathis dammara). Replace with community photo.', 'verified'
+WHERE NOT EXISTS (SELECT 1 FROM species_photos WHERE file_url = '/uploads/species/20000000-0000-0000-0000-000000000005/almaciga.jpg');
+
+INSERT INTO species_photos (species_id, file_url, photo_type, caption, verification_status)
+SELECT '20000000-0000-0000-0000-000000000008', '/uploads/species/20000000-0000-0000-0000-000000000008/ipil.jpg', 'whole_tree', 'Sample photo via Wikipedia (Intsia acuminata). Replace with community photo.', 'verified'
+WHERE NOT EXISTS (SELECT 1 FROM species_photos WHERE file_url = '/uploads/species/20000000-0000-0000-0000-000000000008/ipil.jpg');
+
+INSERT INTO species_photos (species_id, file_url, photo_type, caption, verification_status)
+SELECT '20000000-0000-0000-0000-000000000009', '/uploads/species/20000000-0000-0000-0000-000000000009/kalomala.jpg', 'whole_tree', 'Sample photo via Wikipedia (Elaeocarpus calomala). Replace with community photo.', 'verified'
+WHERE NOT EXISTS (SELECT 1 FROM species_photos WHERE file_url = '/uploads/species/20000000-0000-0000-0000-000000000009/kalomala.jpg');

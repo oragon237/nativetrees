@@ -103,7 +103,7 @@ adminRouter.get('/users', requireRole('moderator', 'admin'), async (req, res, ne
               COALESCE(array_agg(r.name) FILTER (WHERE r.name IS NOT NULL), '{}') AS roles
        FROM users u LEFT JOIN user_roles ur ON ur.user_id = u.id LEFT JOIN roles r ON r.id = ur.role_id
        WHERE ${conditions.join(' AND ')}
-       GROUP BY u.id ORDER BY u.created_at DESC LIMIT $${values.length - 1} OFFSET $${values.length}`,
+       GROUP BY u.id ORDER BY u.created_at DESC, u.id LIMIT $${values.length - 1} OFFSET $${values.length}`,
       values,
     );
     res.json({ users: rows });
@@ -222,7 +222,7 @@ adminRouter.get('/audit-logs', requireRole('moderator', 'admin'), async (req, re
     const limit = Math.min(parseInt((req.query.limit as string) ?? '50', 10) || 50, 200);
     const offset = parseInt((req.query.offset as string) ?? '0', 10) || 0;
     const { rows } = await pool.query(
-      `SELECT * FROM audit_logs ORDER BY created_at DESC LIMIT $1 OFFSET $2`,
+      `SELECT * FROM audit_logs ORDER BY created_at DESC, id LIMIT $1 OFFSET $2`,
       [limit, offset],
     );
     res.json({ logs: rows });

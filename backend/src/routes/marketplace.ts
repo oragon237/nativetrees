@@ -76,7 +76,7 @@ marketplaceRouter.get('/', async (req, res, next) => {
         s.scientific_name
        FROM marketplace_listings l JOIN users u ON u.id = l.seller_id
        JOIN species s ON s.id = l.species_id
-       WHERE ${conds.join(' AND ')} ORDER BY l.created_at DESC
+       WHERE ${conds.join(' AND ')} ORDER BY l.created_at DESC, l.id
        LIMIT $${values.length - 1} OFFSET $${values.length}`,
       values,
     );

@@ -105,9 +105,11 @@ export async function renderMe(root: HTMLElement) {
         <a href="#/observations">${icon('leaf')}<span><strong>My observations</strong></span>${icon('arrow')}</a>
         <a href="#/identify">${icon('camera')}<span><strong>Identification requests</strong></span>${icon('arrow')}</a>
         <a href="#/plantings">${icon('sprout')}<span><strong>My plantings</strong></span>${icon('arrow')}</a>
+        <a href="#/contributions">${icon('upload')}<span><strong>My contributions</strong><small>Species & photo submissions under review</small></span>${icon('arrow')}</a>
         <a href="#/notifications">${icon('info')}<span><strong>Notifications</strong></span>${icon('arrow')}</a>
       </div>
       <h2>Grow together</h2><div class="action-list">
+        <a href="#/contribute">${icon('upload')}<span><strong>Contribute</strong><small>Propose a species or share photos</small></span>${icon('arrow')}</a>
         <a href="#/projects">${icon('tree')}<span><strong>Planting projects</strong></span>${icon('arrow')}</a>
         <a href="#/organization">${icon('user')}<span><strong>Organization</strong></span>${icon('arrow')}</a>
         <a href="#/market">${icon('sprout')}<span><strong>Find native seedlings</strong></span>${icon('arrow')}</a>

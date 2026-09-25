@@ -229,3 +229,11 @@ td a { font-weight: 600; }
   .login-card { padding: 28px 20px; }
 }
 @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; animation:none!important; } }
+
+/* Pagination */
+.result-count { color: var(--text-secondary); font-size: 13px; margin: 16px 0 8px; }
+.pagination { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 16px 0 32px; }
+.pagination button { min-height: 40px; min-width: 44px; padding: 8px 12px; }
+.pagination button[disabled] { opacity: .55; cursor: default; }
+.pagination button[aria-current="page"] { background: var(--kp-forest-dark); }
+.pagination .page-gap { color: var(--text-muted); padding: 0 4px; }

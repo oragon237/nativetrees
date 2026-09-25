@@ -64,7 +64,7 @@ export async function renderTree(root: HTMLElement, id: string) {
     ${d.references.length ? `<h3>References</h3>${d.references.map((r) => `<p><small>${esc(r.title)}${r.organization ? ` — ${esc(r.organization)}` : ''}</small></p>`).join('')}` : ''}
     </section>
     <section class="finder-banner"><h2>Ready to grow one?</h2><p>Find native planting material from local growers.</p><button id="seedBtn" class="kp-btn block">${icon('sprout')} Find seedlings</button><button class="kp-btn clear block" id="alertBtn">Notify me when seedlings are available</button></section>
-    <p><a href="#/correct/${esc(id)}">Suggest a correction</a> · <a href="#/report/species/${esc(id)}">Report</a></p>
+    <p><a href="#/contribute/photo/${esc(id)}">Contribute a photo</a> · <a href="#/correct/${esc(id)}">Suggest a correction</a> · <a href="#/report/species/${esc(id)}">Report</a></p>
   </div>`;
 
   root.querySelector('#seedBtn')?.addEventListener('click', () => (window.location.hash = `#/market?species=${id}`));

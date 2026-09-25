@@ -161,15 +161,19 @@ adminSpeciesRouter.get('/species', requireRole('moderator', 'admin'), async (req
       conds.push(`s.verification_status = $${values.length}`);
     }
     values.push(limit, offset);
-    const { rows } = await pool.query(
-      `SELECT s.id, s.scientific_name, s.genus, s.family, s.verification_status, s.updated_at,
-        (SELECT n.name FROM species_names n WHERE n.species_id = s.id
-          AND n.is_primary AND n.name_type = 'common' LIMIT 1) AS primary_name
-       FROM species s WHERE ${conds.join(' AND ')}
-       ORDER BY s.updated_at DESC LIMIT $${values.length - 1} OFFSET $${values.length}`,
-      values,
-    );
-    res.json({ species: rows });
+    const where = conds.join(' AND ');
+    const [{ rows: countRows }, { rows }] = await Promise.all([
+      pool.query(`SELECT COUNT(*)::int AS total FROM species s WHERE ${where}`, values.slice(0, -2)),
+      pool.query(
+        `SELECT s.id, s.scientific_name, s.genus, s.family, s.verification_status, s.updated_at,
+          (SELECT n.name FROM species_names n WHERE n.species_id = s.id
+            AND n.is_primary AND n.name_type = 'common' LIMIT 1) AS primary_name
+         FROM species s WHERE ${where}
+         ORDER BY s.updated_at DESC, s.id LIMIT $${values.length - 1} OFFSET $${values.length}`,
+        values,
+      ),
+    ]);
+    res.json({ species: rows, total: countRows[0].total, limit, offset });
   } catch (err) {
     next(err);
   }

@@ -98,6 +98,12 @@ export default function SpeciesEditor() {
         fruit_bearing: !!d.species.fruit_bearing,
         flowering: !!d.species.flowering,
         conservation_status: d.species.conservation_status ?? '',
+        conservation_source: d.species.conservation_source ?? '',
+        leaf_description: d.species.leaf_description ?? '',
+        bark_description: d.species.bark_description ?? '',
+        flower_description: d.species.flower_description ?? '',
+        fruit_description: d.species.fruit_description ?? '',
+        seed_description: d.species.seed_description ?? '',
       });
       setPurposes(p.purposes);
       setConditions(c.conditions);
@@ -202,13 +208,19 @@ export default function SpeciesEditor() {
 
       {tab === 'General' && (
         <div className="editor-panel form-grid">
-          {(['description', 'growth_form', 'growth_rate', 'min_height_m', 'max_height_m', 'min_canopy_m', 'max_canopy_m', 'conservation_status'] as const).map((k) => (
+          {(['description', 'growth_form', 'growth_rate', 'min_height_m', 'max_height_m', 'min_canopy_m', 'max_canopy_m', 'conservation_status', 'conservation_source'] as const).map((k) => (
             <div key={k} className={k === 'description' ? 'full' : ''}><label><span>{k.replace(/_/g, ' ')}</span>
               <input value={gen[k] ?? ''} onChange={(e) => setGen({ ...gen, [k]: e.target.value })} />
             </label></div>
           ))}
           <label className="check-field"><input type="checkbox" checked={gen.fruit_bearing} onChange={(e) => setGen({ ...gen, fruit_bearing: e.target.checked })} /> Fruit-bearing</label>
           <label className="check-field"><input type="checkbox" checked={gen.flowering} onChange={(e) => setGen({ ...gen, flowering: e.target.checked })} /> Flowering</label>
+          <div className="full"><h3>Identification notes</h3></div>
+          {(['leaf_description', 'bark_description', 'flower_description', 'fruit_description', 'seed_description'] as const).map((k) => (
+            <div key={k} className="full"><label><span>{k.replace(/_/g, ' ')}</span>
+              <textarea value={gen[k] ?? ''} onChange={(e) => setGen({ ...gen, [k]: e.target.value })} rows={3} />
+            </label></div>
+          ))}
           <div className="full form-actions">
             <button onClick={() => mutate(`/api/v1/admin/species/${id}`, { method: 'PATCH', body: JSON.stringify(gen) })}>Save general</button>
           </div>

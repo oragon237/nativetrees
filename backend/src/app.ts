@@ -19,6 +19,7 @@ import { marketplaceRouter } from './routes/marketplace';
 import { notificationsRouter, reportsRouter, safetyAdminRouter } from './routes/safety';
 import { v2Router } from './routes/v2';
 import { v3Router } from './routes/v3';
+import { contributionsRouter } from './routes/contributions';
 import { errorHandler } from './middleware/errorHandler';
 
 export function createApp() {
@@ -59,6 +60,7 @@ export function createApp() {
   app.use('/api/v1/admin', safetyAdminRouter);
   app.use('/api/v1', v2Router);
   app.use('/api/v1', v3Router);
+  app.use('/api/v1', contributionsRouter);
   app.use('/api/v1/admin', adminRouter);
   app.use('/api/v1/admin', adminSpeciesRouter);
 

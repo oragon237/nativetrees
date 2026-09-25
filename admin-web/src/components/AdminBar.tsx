@@ -10,6 +10,7 @@ const icons: Record<string, JSX.Element> = {
   users: <><circle cx="9" cy="8" r="4"/><path d="M2 21v-2a7 7 0 0 1 14 0v2m1-12a4 4 0 0 1 0 7"/></>,
   projects: <><path d="M4 20h16M6 20v-8h12v8M9 12V7h6v5M8 7h8l-2-4h-4Z"/></>,
   audit: <><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></>,
+  sprout: <><path d="M12 21V10M12 14C3 15 2 10 3 6c6 0 9 3 9 8Zm0-4c0-6 4-8 9-7 0 5-4 8-9 7Z"/></>,
   logout: <><path d="M10 17l5-5-5-5m5 5H3m12-9h5v18h-5"/></>,
 };
 
@@ -41,6 +42,7 @@ export default function AdminBar() {
         <Link to="/projects" className={cls('/projects')} aria-current={cls('/projects') ? 'page' : undefined}><Icon name="projects" />Planting projects</Link>
         <p className="nav-label">Community</p>
         <Link to="/moderation" className={cls('/moderation')} aria-current={cls('/moderation') ? 'page' : undefined}><Icon name="moderation" />Moderation</Link>
+        <Link to="/contributions" className={cls('/contributions')} aria-current={cls('/contributions') ? 'page' : undefined}><Icon name="sprout" />Contributions</Link>
         <Link to="/reports" className={cls('/reports')} aria-current={cls('/reports') ? 'page' : undefined}><Icon name="reports" />Reports</Link>
         <Link to="/users" className={cls('/users')} aria-current={cls('/users') ? 'page' : undefined}><Icon name="users" />Users</Link>
         <Link to="/audit-logs" className={cls('/audit-logs')} aria-current={cls('/audit-logs') ? 'page' : undefined}><Icon name="audit" />Audit log</Link>

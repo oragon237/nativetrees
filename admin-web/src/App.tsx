@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import Users from './pages/Users';
 import AuditLogs from './pages/AuditLogs';
 import Projects from './pages/Projects';
+import Contributions from './pages/Contributions';
 import { isLoggedIn } from './api';
 
 function Guard({ children }: { children: JSX.Element }) {
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/" element={<Guard><SpeciesList /></Guard>} />
         <Route path="/species/:id" element={<Guard><SpeciesEditor /></Guard>} />
         <Route path="/moderation" element={<Guard><Moderation /></Guard>} />
+        <Route path="/contributions" element={<Guard><Contributions /></Guard>} />
         <Route path="/reports" element={<Guard><Reports /></Guard>} />
         <Route path="/users" element={<Guard><Users /></Guard>} />
         <Route path="/audit-logs" element={<Guard><AuditLogs /></Guard>} />
